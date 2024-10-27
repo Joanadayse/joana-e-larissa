@@ -1,5 +1,5 @@
-import React from "react";
-import imagem1 from "./img/imagem1.jpeg"
+import React, { useRef } from "react";
+import imagem1 from "./img/imagem1.jpeg";
 import imagem2 from "./img/imagem2.jpeg";
 import imagem3 from "./img/imagem3.jpeg";
 import imagem4 from "./img/imagem4.jpeg";
@@ -10,52 +10,76 @@ import imagem8 from "./img/imagem6.jpeg";
 import imagem9 from "./img/imagem9.jpeg";
 import imagem10 from "./img/imagem10.jpeg";
 import "./App.css";
-
-
-// import { Carousel } from "react-responsive-carousel";
-import AudioPlayer from "./components/AudioPlayes";
-import Carousel from "./components/Carousel";
-
+import musica from "./music/08-The Scientist.mp3";
+import Slider from "react-slick";
 
 function App() {
- 
+  const settings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 3000,
+    swipe: true,
+  };
+
+  const images = [
+    imagem1,
+    imagem2,
+    imagem3,
+    imagem4,
+    imagem5,
+    imagem6,
+    imagem7,
+    imagem8,
+    imagem9,
+    imagem10,
+  ];
+
+  const audioRef = useRef(null);
+
+  const startAudio = () => {
+    audioRef.current.play();
+  };
+
   return (
     <div className="app">
       <header>
         <h1>Nosso cantinho especial ❤️</h1>
       </header>
-
-      <section>
-        <h2>Nossas Memórias</h2>
-        <Carousel
-          images={[
-            imagem1,
-            imagem2,
-            imagem3,
-            imagem4,
-            imagem5,
-            imagem6,
-            imagem7,
-            imagem8,
-            imagem9,
-            imagem10,
-          ]}
-        />
-      </section>
+      <Slider {...settings}>
+        {images.map((image, index) => (
+          <div key={index} className="carousel-container">
+            <img
+              src={image}
+              alt={`Slide ${index + 1}`}
+              style={{ width: "auto", height: "100%" }}
+            />
+          </div>
+        ))}
+      </Slider>
 
       <section>
         <h2>Minha musica favorita que agora me faz lembrar voce!🎶</h2>
-        <AudioPlayer src="/music/our-song.mp3" />
+        <button onClick={startAudio}>Iniciar Música</button>
+        <audio ref={audioRef} src={musica} loop />
       </section>
 
       <section>
-        <h2>Pequenas Memórias</h2>
+        <p>Seu abraço que protege,e transborda cuidado e amor.</p>
         <p>
-          "Nosso piquinic na praia a luz do luar , e com o barulho do mar ... eu
-          já sabia que amava voce!"
+          Seu cheiro tão gostoso e bom de sentir que mais parece uma casa limpa,
+          que te convida sempre a ficar mais um pouquinho! 💕"
         </p>
-        <p>"Você é a melhor pessoa que já conheci 💕"</p>
-        <p>"O cheiro so seu suor e o gosto do seu beijo"</p>
+        <p>
+          Tudo em ti parece novidade mas é estranhamente conhecido aos meus
+          olhos!
+        </p>
+        <p>
+         Te li em dezenas de livros e finalmente te achei!!!
+        </p>
       </section>
 
       <footer>

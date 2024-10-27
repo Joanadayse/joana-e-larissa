@@ -1,7 +1,24 @@
+/* Em App.css ou seu arquivo de estilo principal */
+@import '~slick-carousel/slick/slick.css';
+@import '~slick-carousel/slick/slick-theme.css';
+
+.slick-slide img {
+  border-radius: 10px; /* Adiciona bordas arredondadas às imagens */
+}
+
+.slick-dots li button:before {
+  color: gray; /* Cor dos pontos de navegação */
+}
+
+.slick-dots li.slick-active button:before {
+  color: black; /* Cor dos pontos ativos */
+}
+
+
+
 /* Estilos gerais */
 body, .app {
-  font-family: Arial, sans-serif;
-  display: flex;
+ 
   flex-direction: column;
   align-items: center;
   margin: 0;
@@ -11,69 +28,33 @@ body, .app {
 }
 
 body{
-   color: white;
-  background-color: black;
-
-}
-
-/* Layout de carrossel e imagem */
-.carousel img {
-  display: flex;
-  max-width: 100%;
-  border-radius: 8px;
-  border-color: white;
-  height: 60px;
+   color: #6B728E;
+  background-color: #000000;
+  font-family: 'Dancing Script', cursive;
   
+
 }
 
-imagem{
-  width: 120px; /* Define a largura da imagem */
-  height: 160px;
-}
 
-.imagem:hover {
-  transform: scale(1.1); /* Aumenta a imagem em 10% no hover */
-  filter: brightness(80%); /* Escurece levemente a imagem */
-}
 
-/* Botões */
 button {
   padding: 10px 15px;
   font-size: 1rem;
   border-radius: 5px;
   cursor: pointer;
   margin: 5px;
-  color: white;
+   color: #6B728E;
   background-color: black;
 }
 
-/* Seção de Memórias */
-section {
-  margin: 20px 0;
-}
 
-section h2 {
-  font-size: 1.5rem;
-  margin-bottom: 10px;
-}
 
-p {
-  font-size: 1rem;
-  margin: 5px 0;
-}
-
-.rhap_container {
-  background-color: black;
-  border-radius: 10px;
-}
-
-.rhap_play-pause-button {
-  color: #333;
-}
-
-.rhap_progress-bar {
-  background-color: #f4a261;
-}
+.carousel-container {
+   
+  height: 450px;        
+   margin: 0 auto;        
+ 
+ }
 
 
 /* Exemplo de personalização para o player */
